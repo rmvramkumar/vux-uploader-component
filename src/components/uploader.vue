@@ -1,7 +1,7 @@
 <template>
   <div class="vux-uploader">
     <div class="vux-uploader_hd">
-      <p class="vux-uploader_title">{{ title }}</p>
+      <p class="vux-uploader_title">{{ title }}nTesting</p>
       <div class="vux-uploader_info">{{ fileList.length }} / {{ limit }}</div>
     </div>
     <div class="vux-uploader_bd">
