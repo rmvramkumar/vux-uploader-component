@@ -16,7 +16,7 @@
           :style="{
               backgroundImage: `url(${item.url})`
             }"
-          @click="handleFileClick($event, item, index)"
+          
         >
           <div
             v-if="!!item.fetchStatus && item.fetchStatus !== 'success'"
@@ -29,6 +29,7 @@
               class="upload-error"
             ></i>
           </div>
+          <div class="delete-img" @click="handleFileClick($event, item, index)"></div>
         </li>
       </ul>
       <div
@@ -233,8 +234,9 @@ export default {
       }
     },
     handleFileClick(e, item, index) {
-      this.$refs.previewer.show(index)
+      //this.$refs.previewer.show(index)
       this.previewerIndex = index
+      this.deleteImg()
     },
     deleteImg() {
       const { previewerIndex, fileList } = this
@@ -332,7 +334,7 @@ export default {
   }
   .vux-uploader_bd {
     overflow: hidden;
-    margin-left: -9px;
+    margin-left: -9px;    
     .vux-uploader_files {
       list-style: none;
       .vux-uploader_file {
@@ -343,6 +345,17 @@ export default {
         height: 79px;
         background: no-repeat center center;
         background-size: cover;
+        position: relative;
+        margin-right: 9px;
+      }
+      .delete-img:after {
+          content: "\00d7";
+          top: -4px;
+          cursor: pointer;
+          opacity: 1;
+          position: absolute;
+          z-index: 999;
+          right: -10px;
       }
       .vux-uploader_file-status {
         position: relative;
