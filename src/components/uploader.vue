@@ -1,7 +1,7 @@
 <template>
   <div class="vux-uploader">
     <div class="vux-uploader_hd">
-      <p class="vux-uploader_title">{{ title }}nTesting</p>
+      <p class="vux-uploader_title">{{ title }}</p>
       <div class="vux-uploader_info">{{ fileList.length }} / {{ limit }}</div>
     </div>
     <div class="vux-uploader_bd">
@@ -79,7 +79,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: '图片上传',
+      default: 'Upload picture',
     },
     files: {
       type: Array,
@@ -185,7 +185,7 @@ export default {
       const inputChangeFiles = target.files
       if (inputChangeFiles.length > 0) {
         if (fileList.length + inputChangeFiles.length > limit) {
-          alert(`不能上传超过${limit}张图片`)
+          alert(`Cannot upload more than ${limit} pictures`)
           return
         }
         Promise.all(
